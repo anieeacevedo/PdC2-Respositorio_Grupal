@@ -75,40 +75,29 @@ public class VistaHistorialCliente extends JDialog {
      * el encapsulamiento inmutable de la lista de ventas.
      */
     private void cargarDatosCliente() {
-        // 1. Recuperar la lista de ventas (es de solo lectura por diseño de encapsulamiento)
-        List<Venta> historial = controlador.obtenerHistorialCliente();
-        
-        // 2. Limpiar filas previas de la interfaz gráfica por seguridad
-        modeloTabla.setRowCount(0);
-        
-        if (historial.isEmpty()) {
-            lblPuntos.setText("Puntos Acumulados: 0 (Aún no registra compras)");
-            return;
-        }
+    // 1. Recuperar la lista de ventas (es de solo lectura por diseño)
+    List<Venta> historial = controlador.obtenerHistorialCliente();
+    
+    // 2. Limpiar filas previas de la interfaz gráfica
+    modeloTabla.setRowCount(0);
+    
+    // 3. Obtener los puntos reales almacenados directamente en el Cliente
+    int puntosReales = controlador.obtenerPuntosCliente();
+    lblPuntos.setText("Puntos Acumulados Totales: " + puntosReales + " pts");
 
-        // Variable auxiliar para el total dinámico de puntos
-        int totalPuntos = 0;
-        int contador = 1;
+    if (historial.isEmpty()) {
+        return;
+    }
 
-        // 3. Iterar de forma segura sobre la colección inmutable
-        for (Venta venta : historial) {
-            int cantidadEntradas = venta.getEntradas().size();
-            
-            // Reconstrucción del registro para el JTable
-            Object[] fila = {
-                contador++,
-                venta.getFecha().toString(),
-                "S/. " + venta.getMonto(),
-                cantidadEntradas + " entrada(s)"
-            };
-            
-            modeloTabla.addRow(fila);
-            
-            // Cálculo derivado: 10 puntos por cada entrada en la transacción
-            totalPuntos += (cantidadEntradas * 10);
-        }
-
-        // 4. Actualizar el componente gráfico con la información procesada
-        lblPuntos.setText("Puntos Acumulados Totales: " + totalPuntos + " pts");
+    int contador = 1;
+    // 4. Iterar de forma segura sobre la colección para llenar las filas
+    for (Venta venta : historial) {
+        Object[] fila = {
+            contador++,
+            venta.getFecha().toString(),
+            "S/. " + venta.getMonto(),
+            venta.getEntradas().size() + " entrada(s)"
+        };
+        modeloTabla.addRow(fila);
     }
 }
