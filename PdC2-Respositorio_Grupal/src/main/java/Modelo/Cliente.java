@@ -35,14 +35,14 @@ public class Cliente extends Persona {
     }
 
     
-    private boolean ingresar(String usuario, String clave) throws UsuarioExcepcion {
+    private boolean ingresar(String usuario, String clave) throws IllegalArgumentException {
         if (this.dni == null || this.contrasena == null) {
-            throw new UsuarioExcepcion("Credenciales no configuradas.");
+            throw new IllegalArgumentException("Credenciales no configuradas.");
         }
         if (this.dni.equals(usuario) && this.contrasena.equals(clave)) {
             return true;
         } else {
-            throw new UsuarioExcepcion("DNI o contraseña incorrectos.");
+            throw new IllegalArgumentException("DNI o contraseña incorrectos.");
         }
     }
 
