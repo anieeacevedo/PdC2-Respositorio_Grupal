@@ -71,4 +71,8 @@ public class SistemaVentasControlador {
     public void ejecutarSupervisionAdmin() {
         administrador.supervisarVentas(concierto);
     }
+
+    public int obtenerPuntosCliente() {
+        return clienteActual.getPuntos();
+    }
 }
