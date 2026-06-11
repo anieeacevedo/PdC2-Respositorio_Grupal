@@ -1,0 +1,10 @@
+# Maven target directory
+target/
+
+# NetBeans specific files
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+build/
