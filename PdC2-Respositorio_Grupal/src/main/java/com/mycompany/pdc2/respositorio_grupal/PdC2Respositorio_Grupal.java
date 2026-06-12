@@ -1,6 +1,5 @@
 package com.mycompany.pdc2.respositorio_grupal;
 
-import Vista.VistaConsola;
 import Controlador.SistemaVentasControlador;
 import Vista.VistaZonas;
 import Vista.VistaHistorialCliente;
@@ -14,8 +13,8 @@ public class PdC2Respositorio_Grupal {
 */
         SistemaVentasControlador controlador = new SistemaVentasControlador();
         
-        VistaZonas vistaZonas = new VistaZonas(null, controlador);
-        vistaZonas.setVisible(true);
+       /* VistaZonas vistaZonas = new VistaZonas(null, controlador);
+        vistaZonas.setVisible(true);*/
         
         
         
