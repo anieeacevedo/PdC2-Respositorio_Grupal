@@ -75,4 +75,8 @@ public class SistemaVentasControlador {
     public int obtenerPuntosCliente() {
         return clienteActual.getPuntos();
     }
+    
+    public boolean anularUltimaVenta() {
+        return clienteActual.anularVenta();
+    }
 }
