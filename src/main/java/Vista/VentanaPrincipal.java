@@ -155,7 +155,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     private void btnPanelAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPanelAdminActionPerformed
-        javax.swing.JOptionPane.showMessageDialog(this, "Tu chamba Danilo");
+        VistaPanelAdmin panelAdmin = new VistaPanelAdmin(this, this.ctrl);
+        panelAdmin.setVisible(true);
     }//GEN-LAST:event_btnPanelAdminActionPerformed
 
     private void btnVerZonasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerZonasActionPerformed
@@ -163,7 +164,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerZonasActionPerformed
 
     private void btnMisComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisComprasActionPerformed
-        javax.swing.JOptionPane.showMessageDialog(this, "Tu chamba Martin");
+        VistaHistorialCliente historial = new VistaHistorialCliente(this, this.ctrl);
+        historial.setVisible(true);
     }//GEN-LAST:event_btnMisComprasActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

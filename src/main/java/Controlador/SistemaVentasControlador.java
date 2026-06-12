@@ -67,8 +67,32 @@ public class SistemaVentasControlador {
         return clienteActual.getVentas();
     }
 
+    // Retorna los puntos acumulados del cliente actual
+    public int obtenerPuntosCliente() {
+        return clienteActual.getPuntos();
+    }
+
     // Permite al administrador supervisar el estado actual de las ventas
     public void ejecutarSupervisionAdmin() {
         administrador.supervisarVentas(concierto);
+    }
+
+    // Retorna la lista de zonas para el panel de auditoría del administrador
+    public List<Zona> obtenerReporteAuditoriaAdmin() {
+        return concierto.getZonas();
+    }
+
+    // Registra una nueva zona en el concierto desde el panel de administración
+    public void registrarNuevaZonaAdmin(String nombre, int capacidad, int precio) {
+        if (nombre == null || nombre.isEmpty()) {
+            throw new IllegalArgumentException("El nombre de la zona no puede estar vacío.");
+        }
+        if (capacidad <= 0) {
+            throw new IllegalArgumentException("La capacidad debe ser un número positivo.");
+        }
+        if (precio <= 0) {
+            throw new IllegalArgumentException("El precio debe ser un número positivo.");
+        }
+        concierto.getZonas().add(new Zona(nombre, capacidad, precio));
     }
 }

@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.SistemaVentasControlador;
 import Modelo.Venta;
-import Modelo.Entrada;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Frame;
@@ -100,4 +99,5 @@ public class VistaHistorialCliente extends JDialog {
         };
         modeloTabla.addRow(fila);
     }
+}
 }
