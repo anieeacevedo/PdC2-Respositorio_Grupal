@@ -101,3 +101,5 @@ public class VistaHistorialCliente extends JDialog {
         modeloTabla.addRow(fila);
     }
 }
+
+}

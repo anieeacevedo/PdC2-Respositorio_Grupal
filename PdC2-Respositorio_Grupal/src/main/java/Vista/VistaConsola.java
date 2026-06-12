@@ -81,16 +81,10 @@ public class VistaConsola {
     }
 
     private void mostrarHistorialCliente() {
-        System.out.println("\n--- HISTORIAL DE COMPRAS ---");
-        List<Venta> compras = controlador.obtenerHistorialCliente();
-        if (compras.isEmpty()) {
-            System.out.println("Usted aún no ha realizado ninguna compra.");
-        } else {
-            for (int i = 0; i < compras.size(); i++) {
-                Venta v = compras.get(i);
-                System.out.println((i + 1) + ". Compra Fecha: " + v.getFecha() + " || Monto Total: S/. " + v.getMonto());
-            }
-        }
+        System.out.println("\n--- ABRIENDO HISTORIAL GRÁFICO ---");
+        // Esto es lo que abre la ventana
+        VistaHistorialCliente ventanaHistorial = new VistaHistorialCliente(null, controlador);
+        ventanaHistorial.setVisible(true); 
     }
 
     private void mostrarReporteAdmin() {
