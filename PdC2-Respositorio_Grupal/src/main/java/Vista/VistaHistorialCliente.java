@@ -98,14 +98,10 @@ public class VistaHistorialCliente extends JDialog {
         // Acción para abrir la ventana VistaRegistroTarjeta
         btnGestionarTarjeta.addActionListener(e -> {
             try {
-                // Descomenta las siguientes líneas cuando hayas creado el archivo VistaRegistroTarjeta.java:
-                /*
-                VistaRegistroTarjeta vistaTarjeta = new VistaRegistroTarjeta(parentFrame, true);
+                // EL CAMBIO: Se añade 'controlador' como tercer argumento para enlazar la capa del controlador
+                VistaRegistroTarjeta vistaTarjeta = new VistaRegistroTarjeta(parentFrame, true, controlador);
                 vistaTarjeta.setVisible(true);
-                */
                 
-                // Mensaje provisional de control hasta que desarrolles el archivo correspondiente
-                JOptionPane.showMessageDialog(this, "Abriendo la ventana VistaRegistroTarjeta...");
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Error al abrir la interfaz de tarjetas: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
