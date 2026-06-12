@@ -1,12 +1,24 @@
 package Modelo;
 
 public class Tarjeta {
-    private int numero;
+    private String numero;
     private String nombre;
     private String fecha;
-    private int CVV;
+    private String CVV;
 
-    public Object method() {
-        return null;
+    public Tarjeta() {
+        // Constructor vacío necesario para Cliente.java
     }
+
+    public Tarjeta(String numero, String nombre, String fecha, String cvv) {
+        this.numero = numero;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.CVV = cvv;
+    }
+
+    public String getNumero() { return numero; }
+    public String getNombre() { return nombre; }
+    public String getFecha() { return fecha; }
+    public String getCVV() { return CVV; }
 }

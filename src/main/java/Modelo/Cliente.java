@@ -91,4 +91,5 @@ public class Cliente extends Persona {
     public int getPuntos() { return puntos; }
     public Tarjeta getTarjeta() { return tarjeta; }
     public List<Venta> getVentas() { return ventas; }
+    public void setTarjeta(Tarjeta tarjeta) { this.tarjeta = tarjeta; }
 }

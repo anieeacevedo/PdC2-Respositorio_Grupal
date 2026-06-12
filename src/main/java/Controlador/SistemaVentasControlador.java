@@ -25,7 +25,6 @@ public class SistemaVentasControlador {
 
     // Compra de entradas
     public String procesarCompra(String nombreZona, int cantidadEntradas) {
-        // Busca la zona seleccionada
         Zona zonaSeleccionada = null;
         for (Zona z : concierto.getZonas()) {
             if (z.getNombre().equalsIgnoreCase(nombreZona)) {
@@ -38,13 +37,11 @@ public class SistemaVentasControlador {
             return "Error: La zona especificada no existe.";
         }
 
-        // Lista de entradas virtuales para simular la compra
         List<Entrada> entradasAComprar = new ArrayList<>();
         for (int i = 0; i < cantidadEntradas; i++) {
             entradasAComprar.add(new Entrada(100 + i, zonaSeleccionada));
         }
 
-        // Capturalas excepciones
         try {
             boolean exito = clienteActual.comprarEntradas(zonaSeleccionada, entradasAComprar);
             if (exito) {
@@ -52,9 +49,9 @@ public class SistemaVentasControlador {
                        "Puntos acumulados actuales: " + clienteActual.getPuntos();
             }
         } catch (LimiteEntradasException e) {
-            return e.getMessage(); // "Error: Una transacción no puede superar las 4 entradas."
+            return e.getMessage();
         } catch (CapacidadMaximaException e) {
-            return e.getMessage(); // "Error: Capacidad insuficiente en la zona."
+            return e.getMessage();
         } catch (ZonaDiferenteException e) {
             return e.getMessage();
         }
@@ -70,6 +67,23 @@ public class SistemaVentasControlador {
     // Retorna los puntos acumulados del cliente actual
     public int obtenerPuntosCliente() {
         return clienteActual.getPuntos();
+    }
+
+    // Anula la última venta del cliente
+    public boolean anularUltimaVenta() {
+        return clienteActual.anularVenta();
+    }
+
+    // Registra la tarjeta del cliente con los datos capturados desde la vista
+    public boolean registrarTarjetaCliente(String numero, String nombre, String fecha, String cvv) {
+        Tarjeta nuevaTarjeta = new Tarjeta(numero, nombre, fecha, cvv);
+        clienteActual.setTarjeta(nuevaTarjeta);
+        return clienteActual.registrarTarjeta();
+    }
+
+    // Elimina la tarjeta del cliente actual
+    public boolean eliminarTarjetaCliente() {
+        return clienteActual.eliminarTarjeta();
     }
 
     // Permite al administrador supervisar el estado actual de las ventas
