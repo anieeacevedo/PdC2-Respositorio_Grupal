@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Maven target directory
 target/
 
@@ -8,3 +9,13 @@ dist/
 nbdist/
 .nb-gradle/
 build/
+=======
+/PdC2-Respositorio_Grupal/target/
+
+# ------------------------------
+.metadata/
+.classpath
+.project
+.settings/
+bin/
+>>>>>>> origin/danilo
