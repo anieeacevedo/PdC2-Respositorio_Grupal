@@ -24,12 +24,9 @@ public class Usuario extends Persona {
         System.out.println("Zona '" + nombreZona + "' registrada con éxito por el administrador.");
     }
     
-    public void supervisarVentas(Concierto concierto) {
-        System.out.println("=== Reporte de supervisión para: " + concierto.getNombre() + " ===");
-        // Itera sobre las zonas para auditar las entradas vendidas
-        for (Zona zona : concierto.getZonas()) {
-            System.out.println("Zona: " + zona.getNombre() + " | Capacidad Restante: " + zona.getCapacidad());
-        }
+    public List<Zona> supervisarVentas(Concierto concierto) {
+
+    	return concierto.getZonas();
     }
 
     @Override

@@ -75,4 +75,38 @@ public class SistemaVentasControlador {
     public int obtenerPuntosCliente() {
         return clienteActual.getPuntos();
     }
+    
+    public boolean anularUltimaVenta() {
+        return clienteActual.anularVenta();
+    }
+    
+    
+    
+    public boolean registrarTarjetaCliente(String numero, String nombre, String fecha, String cvv) {
+        // Se instancia la tarjeta usando los parámetros capturados por la vista
+        Tarjeta nuevaTarjeta = new Tarjeta(numero, nombre, fecha, cvv);
+        
+        // Se asocia la tarjeta al cliente actual y se ejecuta la lógica de registro
+        clienteActual.setTarjeta(nuevaTarjeta);
+        return clienteActual.registrarTarjeta();
+    }
+
+    /**
+     * Remueve los datos de la tarjeta del cliente actual.
+     * Invoca la eliminación lógica o física delegando la acción en el modelo Cliente.
+     */
+    public boolean eliminarTarjetaCliente() {
+        return clienteActual.eliminarTarjeta();
+    }
+    
+    public List<Zona> obtenerReporteAuditoriaAdmin() {
+        return administrador.supervisarVentas(concierto);
+    }
+
+    // Puente para que el administrador registre una nueva zona
+    public void registrarNuevaZonaAdmin(String nombre, int capacidad, int precio) throws IllegalArgumentException {
+        // Reutilizamos el método existente en la clase Usuario
+        administrador.registrarZonas(concierto, nombre, capacidad, precio);
+    }
+    
 }
